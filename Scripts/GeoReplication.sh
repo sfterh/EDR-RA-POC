@@ -94,24 +94,19 @@ echo 'Storage Account failed over..' $(date '+%d/%m/%Y %H:%M:%S')
 
 echo 'Starting failover shared services: ' $(date '+%d/%m/%Y %H:%M:%S')
 
-SUBSCRIPTION_NAME="a8e7f59d-5877-4efb-843b-f1a909b1c137"
-TENANT="b7f604a0-00a9-4188-9248-42f3a5aac2e9"
+SUBSCRIPTION_NAME="b12e79a2-e576-4f06-86a1-0d854e9ca00e" #Azure Subscription 1 LXRInfotech
+TENANT="1bfc3093-d35c-42eb-8df1-47a59e098146" #tenant ID
 
 PRIMARY_LOCATION="westus"
-SECONDARY_LOCATION="eastus"
+SECONDARY_LOCATION="eastus2"
 
-WEST_RESOURCE_GROUP="dr-rg"
-EAST_RESOURCE_GROUP="dr-rg"
+WEST_RESOURCE_GROUP="rg-east-Prod-IAUCDR"
+EAST_RESOURCE_GROUP="rg-east-Prod-IAUCDR"
 
-IAUCSTORAGEACCOUNT="drcncnp"
+IAUCSTORAGEACCOUNT="le6csgasriaucpasrcache"
 #declare -a StroageAccounts=("drospkecomnpst01" "drtangerinefilestorage")
 
 MONGO_DATABASE_ACCOUNT_NAME_IAUC="dr-mongodb-iaucccmsperf"
-
-EVENT_HUB_INBOUND_NAME_IAUC = "dr-eventhub-iaucinbound-west"
-EVENT_HUB_OUTBOUND_NAME_IAUC = "dr-eventhub-iaucoutbound-west"
-
-SERVICE_BUS_NAME_IAUC = "dr-iauc-az-perf-west"
 
 ########################################
 #_AZURE_LOGIN
