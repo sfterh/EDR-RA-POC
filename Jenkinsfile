@@ -19,7 +19,7 @@ pipeline{
             }
              stage('Geo-replication'){
                 steps{
-                    sh './Scripts/Failover.sh'
+                    sh './Scripts/GeoReplication.sh'
                 }
             }
          }
