@@ -1,5 +1,5 @@
 _AZURE_LOGIN () {
-    az login
+   az login --service-principal -u ae850628-c022-4fef-9eb2-159a8ad5f743 -p JvFEy~r8Bvp3wG-DT5~Qg956t9hC49bZ7. -t 1bfc3093-d35c-42eb-8df1-47a59e098146
 }
 
 _SET_SUBSCRIPTION_RESOURCE () {
@@ -64,14 +64,13 @@ do
           echo "Configured Standard_RAGRS for : $val}"
           unset temp[$i]
           shouldBreak=true
-          break
-        fi
+          break        
       done
-    fi
+   
 	
 	if [[ "${shouldBreak}" == "true" ]]; then
       break
-    fi
+   
 
   done
   
@@ -104,16 +103,15 @@ WEST_RESOURCE_GROUP="rg-east-Prod-IAUCDR"
 EAST_RESOURCE_GROUP="rg-east-Prod-IAUCDR"
 
 IAUCSTORAGEACCOUNT="le6csgasriaucpasrcache"
-#declare -a StroageAccounts=("drospkecomnpst01" "drtangerinefilestorage")
 
 MONGO_DATABASE_ACCOUNT_NAME_IAUC="dr-mongodb-iaucccmsperf"
 
 ########################################
-#_AZURE_LOGIN
+_AZURE_LOGIN
 _SET_SUBSCRIPTION_RESOURCE
 
 #execute parallelly with multi-threading 
-_IAUC_STORAGE_ACCOUNT_FAILOVER & _IAUC_COSMOS_FAILOVER_TO_SECONDARY_REGION & _IAUC_EVENT_HUB_FAILOVER & _IAUC_SERVICE_HUB_FAILOVER;
+_IAUC_STORAGE_ACCOUNT_FAILOVER & _IAUC_COSMOS_FAILOVER_TO_SECONDARY_REGION;
 
 _SET_STORAGE_ACCOUNT_SKU
 
